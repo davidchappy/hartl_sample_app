@@ -32,6 +32,10 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
+    user = assigns(:user)
+    assert_not user.activated?
+    get edit_account_activation_path(user.activation_token, email: user.email)
+    assert user.reload.activated?
     follow_redirect!
     assert is_logged_in?
     assert_template 'users/show'

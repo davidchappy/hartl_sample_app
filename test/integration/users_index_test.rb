@@ -29,4 +29,20 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_select 'a', text: 'delete', count: 0
   end
+  
+  # test "shouldn't index unactivated users" do
+  #   get signup_path
+  #   assert_difference 'User.count', 1 do
+  #     post signup_path, params: { user: { name:                   "Example User",
+  #                                         email:                  "user@example.com",
+  #                                         password:               "password",
+  #                                         password_confirmation:  "password" } }
+  #   end
+  #   user = assigns[:user]
+  #   assert_not is_logged_in?
+  #   log_in_as(@admin)
+  #   get users_path
+  #   assert_not "a", "Example User"
+  # end
+  
 end

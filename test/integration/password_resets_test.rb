@@ -80,5 +80,4 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_match /Password reset has expired./i, response.body
   end
   
-  
 end

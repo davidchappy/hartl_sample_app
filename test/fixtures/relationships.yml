@@ -1,0 +1,15 @@
+one:
+  follower: fred
+  followed: lana
+  
+two:
+  follower: fred
+  followed: malory
+  
+three:
+  follower: lana
+  followed: fred
+  
+four:
+  follower: ethel
+  followed: fred

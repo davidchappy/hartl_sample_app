@@ -20,4 +20,16 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     end
   end
   
+  test "home page display" do
+    log_in_as(@user)
+    get root_url
+    assert_template "static_pages/home"
+    assert_select 'title', full_title
+    assert_select 'h1', @user.name
+    assert_match @user.following.count.to_s, response.body
+    assert_match @user.followers.count.to_s, response.body
+    assert_select 'h3', 'Micropost Feed'
+    assert_select 'div.pagination', count: 1
+  end
+  
 end
